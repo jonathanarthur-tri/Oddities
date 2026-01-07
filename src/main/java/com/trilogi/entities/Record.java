@@ -1,18 +1,29 @@
 package com.trilogi.entities;
 
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
-
+@Entity
+@Table(name = "record")
 public class Record {
+
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    @ManyToOne
+    @JoinColumn(name = "researcher_id")
     private Researcher researcher;
     @ManyToOne
     @JoinColumn(name = "oddity_id")
     private Oddity oddity;
 
+    @Column(nullable = false)
     private LocalDateTime borrowedDate;
+    @Column(nullable = false)
     private  LocalDateTime returnDate;
+
     private LocalDateTime actualReturnDate;
     private String condition;
 

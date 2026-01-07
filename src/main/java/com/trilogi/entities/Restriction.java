@@ -1,8 +1,9 @@
 package com.trilogi.entities;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-
+@Entity
 public class Restriction {
     private String rule;
     private Severity severity;

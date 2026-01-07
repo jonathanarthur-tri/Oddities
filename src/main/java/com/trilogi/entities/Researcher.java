@@ -1,12 +1,25 @@
 package com.trilogi.entities;
 
+import jakarta.persistence.*;
+
 import java.util.List;
 
+@Entity
+@Table(name = "researcher")
 public class Researcher {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    @Column(nullable = false)
     private String fullName;
+
     private String fieldOfStudy;
     private int clearanceLevel;
     private boolean isActive;
+
+    @OneToMany(mappedBy = "researcher")
     private List<Record> borrowedRecords;
 
     public Researcher(){}
