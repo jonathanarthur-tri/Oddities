@@ -1,21 +1,24 @@
 package com.trilogi.entities;
 
+import com.trilogi.entities.keys.RecordKey;
 import jakarta.persistence.*;
 
+import javax.xml.namespace.QName;
 import java.time.LocalDateTime;
 @Entity
 @Table(name = "record")
 public class Record {
 
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    @EmbeddedId
+    private RecordKey id;
 
     @ManyToOne
+    @MapsId("researcherId")
     @JoinColumn(name = "researcher_id")
     private Researcher researcher;
     @ManyToOne
+    @MapsId("oddityId")
     @JoinColumn(name = "oddity_id")
     private Oddity oddity;
 
