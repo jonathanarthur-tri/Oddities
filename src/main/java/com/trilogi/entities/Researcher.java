@@ -64,6 +64,16 @@ public class Researcher {
         this.borrowedRecords = borrowedRecords;
     }
 
+
+    public void addBorrowedRecord(Record record) {
+        this.borrowedRecords.add(record);
+        record.setResearcher(this);
+    }
+    public void removeBorrowedRecord(Record record) {
+        this.borrowedRecords.remove(record);
+        record.setResearcher(null);
+    }
+
     @Override
     public String toString() {
         return "Researcher{" +

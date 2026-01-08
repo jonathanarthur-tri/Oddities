@@ -45,6 +45,16 @@ public class Category {
         this.oddities = oddities;
     }
 
+    public void addOddity(Oddity oddity) {
+        this.oddities.add(oddity);
+        oddity.setCategory(this);
+    }
+
+    public void removeOddity(Oddity oddity) {
+        this.oddities.remove(oddity);
+        oddity.setCategory(null);
+    }
+
     @Override
     public String toString() {
         return "Category{" +

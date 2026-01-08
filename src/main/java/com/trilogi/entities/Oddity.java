@@ -90,6 +90,25 @@ public class Oddity {
     }
 
 
+    public void addRestriction(Restriction restriction){
+        this.restrictions.add(restriction);
+        restriction.setOddity(this);
+    }
+
+    public void removeRestriction(Restriction restriction){
+        this.restrictions.remove(restriction);
+        restriction.setOddity(null);
+    }
+
+    public void addLendingRecord(Record record){
+        this.lendingRecords.add(record);
+        record.setOddity(this);
+    }
+    public void removeLendingRecord(Record record){
+        this.lendingRecords.remove(record);
+        record.setOddity(null);
+    }
+
     @Override
     public String toString() {
         return "Oddity{" +
